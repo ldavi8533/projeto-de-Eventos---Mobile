@@ -11,7 +11,7 @@ import Colors from '../style/colors';
 
 const Tab = createBottomTabNavigator()
 
-const Routes = () => {
+const TabNavigator = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
@@ -86,4 +86,4 @@ const Routes = () => {
         </NavigationContainer>
     );
 }
-export default Routes;
+export default TabNavigator;
