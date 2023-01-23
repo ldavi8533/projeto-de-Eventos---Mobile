@@ -1,11 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Home from "./Home";
-import Favorites from './Favorites';
-import Profile from './Profile';
-import Historic from './Historic';
+import Home from "../screens/Home";
+import Favorites from '../screens/Favorites';
+import Profile from '../screens/Profile';
+import Historic from '../screens/Historic';
 
 import Colors from '../style/colors';
 
@@ -13,7 +12,6 @@ const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => {
     return (
-        <NavigationContainer>
             <Tab.Navigator
                 screenOptions={{
                     headerShown: false,
@@ -21,7 +19,7 @@ const TabNavigator = () => {
                     tabBarInactiveTintColor: Colors.primaryColor
                 }}
             >
-                <Tab.Screen name="Home"
+                <Tab.Screen name="Overview"
                     component={Home}
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
@@ -83,7 +81,6 @@ const TabNavigator = () => {
                     }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
     );
 }
 export default TabNavigator;

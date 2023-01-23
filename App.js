@@ -1,8 +1,11 @@
-import TabNavigator from './src/screens/tabNavigator';
-import 'react-native-gesture-handler';
+import { NavigationContainer } from "@react-navigation/native";
+
+import AuthNavigator from './src/navigations/authNavigator';
 
 export default function App() {
   return (
-    <TabNavigator />
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
   );
 }
