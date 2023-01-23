@@ -9,24 +9,23 @@ import Button from '../../components/Button';
 import Logo from '../../assets/logo.png';
 
 const initialValues = {
-    name: "",
     email: "",
     password: "",
 };
 
-const SingUpSchema = Yup.object().shape({
-    name: Yup.string(),
-    email: Yup.string().required("Obrigatório"),
+const SinginSchema = Yup.object().shape({
+    email: Yup.string().email("Email invalido").required("Obrigatório"),
     password: Yup.string().min(8, "Senha invalida").required("Obrigatório"),
 });
 
-const Register = ({ navigation }) => {
+const Login = ({ navigation }) => {
     return (
+
         <Container>
 
             <Formik
                 initialValues={initialValues}
-                validationSchema={SingUpSchema}
+                validationSchema={SinginSchema}
                 onSubmit={values => console.log(values)}
             >
                 {({ handleChange, handleBlur, handleSubmit, values, touched, errors, }) => (
@@ -35,25 +34,29 @@ const Register = ({ navigation }) => {
                         <View style={{ alignItems: 'center', marginBottom: 42 }}>
                             <Image source={Logo} />
                         </View>
-                        <Input placeholder="Nome" onChange={handleChange("name")} onBlur={handleBlur("name")} value={values.name}/>
                         <Input placeholder="Email" onChange={handleChange("email")} onBlur={handleBlur("email")} value={values.email}
                             error={errors.email && touched.email ? errors.email : undefined} />
                         <Input placeholder="Senha" onChange={handleChange("password")} onBlur={handleBlur("password")} value={values.password}
                             error={errors.password && touched.password ? errors.password : undefined} password />
-                        <TouchableOpacity style={{ marginTop: 12 }}
-                            onPress={() => {
+                        <TouchableOpacity style={{ marginTop: 12 }} onPress={() => handleSubmit()} >
+                            <Button title="Login" onPress={() => {
                                 navigation.reset({
                                     index: 0,
                                     routes: [{ name: 'Home' }],
                                 })
-                            }} >
-                            <Button title="Cadastrar" onPress={() => [handleSubmit(), navigation.navigate('Home')]} />
+                            }} />
                         </TouchableOpacity>
-                        <Button title="Tem conta? Faça login" link onPress={() => navigation.navigate('Login')} />
+                        <Button title="Não tem conta? Cadastre-se" link
+                            onPress={() => navigation.navigate('Register')}
+                        />
+                        <Button title="Esqueci minha senha" link
+                            onPress={() => navigation.navigate('')}
+                            style={{marginTop:-8, marginLeft:100}}
+                        />
                     </View>
                 )}
             </Formik>
         </Container>
     );
 }
-export default Register;
+export default Login;
