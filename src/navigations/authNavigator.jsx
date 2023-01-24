@@ -1,5 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
+import EmailSubmit from "../screens/EmailSubmit";
 
+import ForgotPassword from "../screens/ForgotPassword";
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 import TabNavigator from "./tabNavigator";
@@ -17,10 +19,14 @@ export default AuthNavigator = () => {
                     name="Register"
                     component={Register}
                 />
-                {/* <Stack.Screen
-                    name="Forgot password"
-                    component={Password}
-                /> */}
+                <Stack.Screen
+                    name="ForgotPassword"
+                    component={ForgotPassword}
+                />
+                 <Stack.Screen
+                    name="EmailSubmit"
+                    component={EmailSubmit}
+                />
                 <Stack.Screen
                     name="Home"
                     component={TabNavigator}

@@ -50,7 +50,7 @@ const Login = ({ navigation }) => {
                             onPress={() => navigation.navigate('Register')}
                         />
                         <Button title="Esqueci minha senha" link
-                            onPress={() => navigation.navigate('')}
+                            onPress={() => navigation.navigate('ForgotPassword')}
                             style={{marginTop:-8, marginLeft:100}}
                         />
                     </View>
