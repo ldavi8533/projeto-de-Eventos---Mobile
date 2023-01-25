@@ -46,13 +46,15 @@ const Login = ({ navigation }) => {
                                 })
                             }} />
                         </TouchableOpacity>
-                        <Button title="Não tem conta? Cadastre-se" link
-                            onPress={() => navigation.navigate('Register')}
-                        />
-                        <Button title="Esqueci minha senha" link
-                            onPress={() => navigation.navigate('ForgotPassword')}
-                            style={{marginTop:-8, marginLeft:100}}
-                        />
+                        <View style={{ alignItems: 'center', marginBottom: 42 }}>
+                            <Button title="Não tem conta? Cadastre-se" link
+                                onPress={() => navigation.navigate('Register')}
+                            />
+                            <Button title="Esqueci minha senha" link
+                                onPress={() => navigation.navigate('ForgotPassword')}
+                                style={{ marginTop: -8}}
+                            />
+                        </View>
                     </View>
                 )}
             </Formik>
