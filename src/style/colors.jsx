@@ -4,7 +4,7 @@ export default {
     secondaryColor: '#FA6900',
     secondaryLight: '#F38630',
     darkColor: '#121214',
-    whiteColor: '#FFF8F8',
+    whiteColor: '#F8F9FA',
     grayColor: '#C0C0C0',
     dangerColor: '#EE6055',
     seccessColor: '#AAF683'

@@ -1,7 +1,11 @@
-import Routes from './src/screens/routes';
+import { NavigationContainer } from "@react-navigation/native";
+
+import AuthNavigator from './src/navigations/authNavigator';
 
 export default function App() {
   return (
-    <Routes />
+    <NavigationContainer>
+      <AuthNavigator />
+    </NavigationContainer>
   );
 }
