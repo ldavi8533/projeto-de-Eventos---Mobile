@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, StyleSheet, TextInput, SafeAreaView} from "react-native";
+import {View, StyleSheet, TextInput, SafeAreaView, Dimensions} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import Colors from "../../style/colors";
 
@@ -15,11 +15,13 @@ const Search = () => {
     </SafeAreaView>
     );
 };
+ 
+const deviceWidth = Math.round(Dimensions.get("window").width);
 
 const styles = StyleSheet.create({
     container: {
-        width: 400,
-        height: 100,
+        width: deviceWidth,
+        height: 120,
         backgroundColor: Colors.primaryColor,
         justifyContent: 'center',
         alignItems: 'center',
@@ -33,7 +35,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 0,
         padding: 10,
-        marginRight: 25,
         
     },
     input:{
