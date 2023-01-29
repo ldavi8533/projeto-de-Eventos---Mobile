@@ -1,11 +1,8 @@
-
-require("dotenv").config();
-const express = require("express");
 const bcrypt = require("bcrypt");
+const User = require("../../models/User");
 
-const router = require("express").Router();
 
-router.post("/auth/register", async (req, res) => {
+async function register(req, res) {
     const { name, email, password} = req.body;
   
     // validations
@@ -46,6 +43,6 @@ router.post("/auth/register", async (req, res) => {
     } catch (error) {
       res.status(500).json({ msg: error });
     }
-  });
+  };
   
-  module.exports = router;
+  module.exports = register;

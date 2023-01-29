@@ -1,11 +1,8 @@
 require("dotenv").config();
-const express = require("express");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const User = require("../../models/User");
 
-const router = require("express").Router();
-
-router.post("/auth/login", async (req, res) => {
+async function login(req, res) {
     const { email, password } = req.body;
   
     // validations
@@ -32,21 +29,12 @@ router.post("/auth/login", async (req, res) => {
     }
   
     try {
-      const secret = process.env.SECRET;
-  
-      const token = jwt.sign(
-        {
-          id: user._id,
-        },
-        secret
-      );
-  
-      res.status(200).json({ msg: "Autenticação realizada com sucesso!", token });
+      res.status(200).json({ msg: "Autenticação realizada com sucesso!"});
     } catch (error) {
-      res.status(500).json({ msg: error });
+      res.status(500).json({ msg: "Error na autentiação" });
     }
-  });
+  };
 
 
-  module.exports = router;
+  module.exports = login;
   
