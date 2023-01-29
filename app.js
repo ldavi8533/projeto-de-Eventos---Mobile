@@ -1,9 +1,8 @@
 require("dotenv").config();
 const express = require("express");
-const router = require("./controller/users/login");
-const login = require("./controller/users/login")
-const register = require("./controller/users/register")
-const connectdb = require("./database/db")
+const router = require("./src/routes/routes");
+const connectdb = require("./src/database/db")
+const port = 3000;
 
 const app = express();
 connectdb();
@@ -15,12 +14,20 @@ app.use(
 );
 
 // models
-const User = require("./models/User");
+const User = require("./src/models/User");
 
 // Config JSON response
 app.use(express.json());
 
-//Routes
-app.use('/register', register)
+app.use(router)
 
-app.use('/login', login)
+//Routes
+app.use('/register', router)
+
+app.use('/login', router)
+
+
+//Identificado porta 3000
+app.listen(port, () => {
+  console.log(`Servidor rodando no endereço http://localhost:${port}`)
+})
