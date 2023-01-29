@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.primaryColor,
         justifyContent: 'center',
         alignItems: 'center',
-
     },
+
     cabecalho:{
         flexDirection: 'row',
         alignItems: 'center',
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 0,
         padding: 10,
-        
     },
+    
     input:{
         flex: 0.80,
         backgroundColor: Colors.primaryLight,
