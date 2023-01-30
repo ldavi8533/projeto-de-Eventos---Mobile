@@ -2,14 +2,10 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Image, Text } from 'react-native';
 import { Heading } from '../../components/ProfileLabel';
 import  profileImg  from '../../assets/profile-test.png';
-import profileBackground from '../../assets/profile-background.svg'
 
 const Profile = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Image 
-                source={profileBackground}
-            />
             <Image 
                 source={profileImg}
                 style={styles.profileImg}
