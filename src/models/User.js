@@ -6,7 +6,8 @@ const User = mongoose.model('User', {
   email: String,
   telefone: Number,
   password: String,
-  passwordResetToken: String
+  passwordResetToken: String,
+  purchaseHistoric: Array
 })
 
 module.exports = User

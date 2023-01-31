@@ -30,6 +30,7 @@ app.use('/forgot_password', router)
 
 app.use('/edit', router)
 
+app.use('/user', router);
 
 //Identificado porta 3000
 app.listen(port, () => {
