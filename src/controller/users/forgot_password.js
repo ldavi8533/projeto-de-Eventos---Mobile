@@ -1,7 +1,7 @@
 require("dotenv").config();
 const crypto = require('crypto');
 const User = require("../../models/User");
-const mailer = require('../../models/mailer');
+const nodemailer = require('nodemailer');
 
 async function forgot_password(req, res) {
     const { email } = req.body;
@@ -24,14 +24,24 @@ async function forgot_password(req, res) {
 
         console.log(token);
 
-        mailer.sendMail({
+        const remetente = nodemailer.createTransport({
+            "host": "smtp.mailtrap.io",
+            "port": 2525,
+            auth:{
+            "user": "72ae86b4447d0a",
+            "pass": "6d1e7fb790fd51"}
+        })
+
+        const emailEnviado = {
+            from: "rafa@exemp.com",
             to: email, 
             subject: 'Recuperação de acesso',
-            from: 'rafa@gmail.com.br',
+            Text:"recuperar senha",
             template: 'auth/forgot_password',
             context: { token },
-        }, (err) => {
-           if (err) 
+        }
+        remetente.sendMail(emailEnviado, (err) => {
+           if (err)
             return res.status(400).send({ error: 'Não foi possivel enviar o e-mail de recuperação de senha'});
 
             return res.status(200).send({ status: 'E-mail enviado com sucesso'});
