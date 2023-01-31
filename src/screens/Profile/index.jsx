@@ -1,20 +1,20 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Image, Text, ImageBackground, View } from 'react-native';
 import { Heading } from '../../components/ProfileLabel';
 import  profileImg  from '../../assets/profile-test.png';
-import profileBackground from '../../assets/profile-background.svg'
 
 const Profile = () => {
     return (
         <SafeAreaView style={styles.container}>
-            <Image 
-                source={profileBackground}
-            />
+
+            <View style={styles.profileBackground}></View> 
+            
             <Image 
                 source={profileImg}
                 style={styles.profileImg}
             />
-            <Text style={{fontSize: 23, fontWeight: 'bold'}}>Reyson Ferreira</Text>
+
+            <Text style={styles.name}>Reyson Ferreira</Text>
 
             <Heading
                 style={styles.label}
@@ -51,12 +51,30 @@ const styles = StyleSheet.create({
         margin: 30,
     },
     profileImg: {
-        width: 115,
-        height: 115,
-        borderRadius: 115 / 2
+        width: 130,
+        height: 130,
+        borderRadius: 130 / 2, 
+        position: 'absolute',
+        bottom: 520,
+        left: 110
     },
     label: {
         paddingBottom: 10
+    },
+    profileBackground: {
+        width: 400,
+        height: 400,
+        borderRadius: 200,
+        backgroundColor: '#377481',
+        transform: [{ scaleX: 2 }],
+        position: "absolute",
+        right: -26,
+        bottom: 580,
+    },
+    name: {
+        fontSize: 23,
+        fontWeight: 'bold',
+        
     }
 })
 export default Profile;
