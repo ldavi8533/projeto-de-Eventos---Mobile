@@ -3,15 +3,23 @@ import {View, StyleSheet, TextInput, SafeAreaView, Dimensions} from "react-nativ
 import { Ionicons } from '@expo/vector-icons';
 import Colors from "../../style/colors";
 
-
-const Payments = () => {
+const Payments = ({inco,Pname}) => {
     const [text, setText] = useState ('');
     return (
     <SafeAreaView style={styles.container}>
         <View style={styles.cabecalho}>
-        <Ionicons name="card" size={30} color={Colors.primaryLight}/>
-        <TextInput style={styles.input} placeholder="Cartão" paddingLeft={15} autoCapitalize="none" autoCorrect={false} value={text} onChangeText={(value) => setText(value)}/>
-    </View>
+            <Ionicons name={inco} size={30} 
+                color={Colors.primaryLight}
+            />
+            <TextInput style={styles.input} 
+                placeholder={Pname}
+                paddingLeft={15} 
+                autoCapitalize="none" 
+                autoCorrect={false} 
+                value={text} 
+                onChangeText={(value) => setText(value)}
+            />
+        </View>
     </SafeAreaView>
     );
 };
