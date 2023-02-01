@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export function Heading(Props) {
   return (
-    <View>
+    <View style={styles.container}>
         <Text style={styles.labelTitle}>
             {Props.labelTitle}
         </Text>
@@ -17,11 +17,12 @@ export function Heading(Props) {
 
 const styles = StyleSheet.create({
     labelTitle: {
-        fontSize: 19,
-        fontWeight: 'bold'
-
+        fontSize: 20,
+        fontWeight: 'bold',
+        paddingBottom: 5
     },
     labelSubtitle:{
-        fontSize: 19
+        fontSize: 20,
+        paddingBottom: 10
     }
 })
