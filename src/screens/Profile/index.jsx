@@ -2,6 +2,8 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Image, Text, ImageBackground, View } from 'react-native';
 import { Heading } from '../../components/ProfileLabel';
 import  profileImg  from '../../assets/profile-test.png';
+import OtherButton from '../../components/OtherButton';
+import colors from '../../style/colors';
 
 const Profile = () => {
     return (
@@ -13,32 +15,37 @@ const Profile = () => {
                 source={profileImg}
                 style={styles.profileImg}
             />
-
             <Text style={styles.name}>Reyson Ferreira</Text>
 
-            <Heading
-                style={styles.label}
-                labelTitle='Nome'
-                labelSubtitle='Reyson Renan Lustosa'
-            />
+            <View style={styles.texts}>
 
-            <Heading
-                style={styles.label}
-                labelTitle='Apelido'
-                labelSubtitle='Reyson Ferreira'
-            />
+                <Heading
+                    style={styles.label}
+                    labelTitle='Nome'
+                    labelSubtitle='Reyson Renan Lustosa'
+                />
 
-            <Heading
-                style={styles.label}
-                labelTitle='Email'
-                labelSubtitle='reysonrenan@gmail.com'
-            />
+                <Heading
+                    style={styles.label}
+                    labelTitle='Apelido'
+                    labelSubtitle='Reyson Ferreira'
+                />
 
-            <Heading
-                style={styles.label}
-                labelTitle='Telefone'
-                labelSubtitle='(83) 9xxxx-xxxx'
-            />
+                <Heading
+                    style={styles.label}
+                    labelTitle='Email'
+                    labelSubtitle='reysonrenan@gmail.com'
+                />
+
+                <Heading
+                    style={styles.label}
+                    labelTitle='Telefone'
+                    labelSubtitle='(83) 9xxxx-xxxx'
+                />
+            </View>
+            
+            <View style={styles.button}><OtherButton title='Editar perfil' color={colors.primaryColor}/></View>
+            <View style={styles.button}><OtherButton title='Sair' color={colors.dangerColor}/></View>
         </SafeAreaView>
     );
 }
@@ -46,35 +53,37 @@ const Profile = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        margin: 30,
     },
     profileImg: {
         width: 130,
         height: 130,
         borderRadius: 130 / 2, 
-        position: 'absolute',
-        bottom: 520,
-        left: 110
-    },
-    label: {
-        paddingBottom: 10
+        marginTop: 120,
+        marginLeft: 50
     },
     profileBackground: {
-        width: 400,
+        width: 500,
         height: 400,
-        borderRadius: 200,
         backgroundColor: '#377481',
-        transform: [{ scaleX: 2 }],
         position: "absolute",
-        right: -26,
-        bottom: 580,
+        bottom: 630
     },
     name: {
-        fontSize: 23,
+        fontSize: 25,
         fontWeight: 'bold',
-        
+        marginTop: 10,
+        marginLeft: 40
+    },
+    texts: {
+        margin: 30,
+        flexDirection: 'column',
+        justifyContent:'center',
+        textAlign:'center',
+        marginTop: 70,
+        marginBottom: 60
+    },
+    button: {
+        alignItems: 'center',
     }
 })
 export default Profile;
