@@ -1,17 +1,17 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image, Text, ImageBackground, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Image, Text, Button, View } from 'react-native';
 import { Heading } from '../../components/ProfileLabel';
-import  profileImg  from '../../assets/profile-test.png';
+import profileImg from '../../assets/profile-test.png';
 import OtherButton from '../../components/OtherButton';
 import colors from '../../style/colors';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
 
-            <View style={styles.profileBackground}></View> 
-            
-            <Image 
+            <View style={styles.profileBackground}></View>
+
+            <Image
                 source={profileImg}
                 style={styles.profileImg}
             />
@@ -43,9 +43,15 @@ const Profile = () => {
                     labelSubtitle='(83) 9xxxx-xxxx'
                 />
             </View>
-            
-            <View style={styles.button}><OtherButton title='Editar perfil' color={colors.primaryColor}/></View>
-            <View style={styles.button}><OtherButton title='Sair' color={colors.dangerColor}/></View>
+
+            <View style={styles.button}>
+                <Button title='Editar perfil' color={colors.primaryColor}
+                    onPress={() => navigation.navigate('EditProfile')}
+                />
+                <Button title='Sair' color={colors.dangerColor}
+                    onPress={() => navigation.navigate('Login')}
+                />
+            </View>
         </SafeAreaView>
     );
 }
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
     profileImg: {
         width: 130,
         height: 130,
-        borderRadius: 130 / 2, 
+        borderRadius: 130 / 2,
         marginTop: 120,
         marginLeft: 50
     },
@@ -77,8 +83,8 @@ const styles = StyleSheet.create({
     texts: {
         margin: 30,
         flexDirection: 'column',
-        justifyContent:'center',
-        textAlign:'center',
+        justifyContent: 'center',
+        textAlign: 'center',
         marginTop: 70,
         marginBottom: 60
     },

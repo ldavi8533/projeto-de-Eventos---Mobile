@@ -1,12 +1,14 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Home from "../screens/Home";
-import Favorites from '../screens/Favorites';
-import Profile from '../screens/Profile';
-import Historic from '../screens/Historic';
-
 import Colors from '../style/colors';
+
+import {
+    StackNavigatorHome,
+    StackNavigatorFavorites,
+    StackNavigatorHistoric,
+    StackNavigatorProfile
+} from './stackNavigator';
 
 const Tab = createBottomTabNavigator()
 
@@ -20,7 +22,7 @@ const TabNavigator = () => {
                 }}
             >
                 <Tab.Screen name="Overview"
-                    component={Home}
+                    component={StackNavigatorHome}
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
                             <Ionicons
@@ -35,7 +37,7 @@ const TabNavigator = () => {
                         )
                     }}
                 />
-                <Tab.Screen name="Favorites" component={Favorites}
+                <Tab.Screen name="Favoritos" component={StackNavigatorFavorites}
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
                             <Ionicons
@@ -50,7 +52,7 @@ const TabNavigator = () => {
                         )
                     }}
                 />
-                <Tab.Screen name="Histórico" component={Historic}
+                <Tab.Screen name="Histórico" component={StackNavigatorHistoric}
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
                             <Ionicons
@@ -65,7 +67,7 @@ const TabNavigator = () => {
                         )
                     }}
                 />
-                <Tab.Screen name="Perfil" component={Profile}
+                <Tab.Screen name="Perfil" component={StackNavigatorProfile}
                     options={{
                         tabBarIcon: ({ focused, color, size }) => (
                             <Ionicons
