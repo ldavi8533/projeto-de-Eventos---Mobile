@@ -32,6 +32,8 @@ app.use('/edit', router)
 
 app.use('/user', router);
 
+app.use('/registercard', router);
+
 //Identificado porta 3000
 app.listen(port, () => {
   console.log(`Servidor rodando no endereço http://localhost:${port}`)

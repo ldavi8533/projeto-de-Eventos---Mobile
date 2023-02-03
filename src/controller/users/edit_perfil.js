@@ -1,10 +1,5 @@
 const User = require("../../models/User")
 
-async function updateUser(req, res) {
-    User.findOne({email: req.params.email}).then((user) =>{
-      res.render('edit',{user: user})
-    })
-  }
   
 async function confirmEdit(req, res) {
     User.findOne({email: req.body.email}).then((user)=>{
@@ -20,4 +15,4 @@ async function confirmEdit(req, res) {
     })
   }
 
-  module.exports = {updateUser, confirmEdit}
+  module.exports =  confirmEdit;
