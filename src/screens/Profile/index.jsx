@@ -45,10 +45,10 @@ const Profile = ({navigation}) => {
             </View>
 
             <View style={styles.button}>
-                <Button title='Editar perfil' color={colors.primaryColor}
+                <OtherButton title='Editar perfil' color={colors.primaryColor}
                     onPress={() => navigation.navigate('EditProfile')}
                 />
-                <Button title='Sair' color={colors.dangerColor}
+                <OtherButton title='Sair' color={colors.dangerColor}
                     onPress={() => navigation.navigate('Login')}
                 />
             </View>
