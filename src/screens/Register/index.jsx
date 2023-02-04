@@ -8,6 +8,8 @@ import Button from '../../components/Button';
 
 import Logo from '../../assets/logo.png';
 
+import Colors from '../../style/colors';
+
 const initialValues = {
     name: "",
     email: "",
@@ -15,9 +17,9 @@ const initialValues = {
 };
 
 const SingUpSchema = Yup.object().shape({
-    name: Yup.string(),
-    email: Yup.string().required("Obrigatório"),
-    password: Yup.string().min(8, "Senha invalida").required("Obrigatório"),
+    name: Yup.string().required('Obrigatório!'),
+    email: Yup.string().required("Obrigatório!").email('Email inválido!'),
+    password: Yup.string().min(8, "É necessário no mínimo 8 caracteres!").required("Obrigatório!"),
 });
 
 const Register = ({ navigation }) => {
@@ -47,9 +49,18 @@ const Register = ({ navigation }) => {
                                     routes: [{ name: 'Home' }],
                                 })
                             }} >
-                            <Button title="Cadastrar" onPress={() => [handleSubmit(), navigation.navigate('Home')]} />
+                            <Button title="Cadastrar"
+                                colorBorder={Colors.primaryColor}
+                                colorButton={Colors.primaryColor}
+                                colorText={Colors.whiteColor}
+                                onPress={() => [handleSubmit(), navigation.navigate('Home')]}
+                            />
                         </TouchableOpacity>
-                        <Button title="Tem conta? Faça login" link onPress={() => navigation.navigate('Login')} />
+                        <Button title="Tem conta? Faça login" link
+                            colorBorder={Colors.whiteColor}
+                            colorButton={Colors.primaryColor}
+                            onPress={() => navigation.navigate('Login')}
+                        />
                     </View>
                 )}
             </Formik>

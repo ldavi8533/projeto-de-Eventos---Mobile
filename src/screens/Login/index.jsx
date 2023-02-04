@@ -7,6 +7,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import Logo from '../../assets/logo.png';
+import Colors from '../../style/colors';
 
 const initialValues = {
     email: "",
@@ -14,8 +15,8 @@ const initialValues = {
 };
 
 const SinginSchema = Yup.object().shape({
-    email: Yup.string().email("Email invalido").required("Obrigatório"),
-    password: Yup.string().min(8, "Senha invalida").required("Obrigatório"),
+    email: Yup.string().email("Email inválido!").required("Obrigatório!"),
+    password: Yup.string().min(8, "É necessário no mínimo 8 caracteres!").required("Obrigatório"),
 });
 
 const Login = ({ navigation }) => {
@@ -39,20 +40,29 @@ const Login = ({ navigation }) => {
                         <Input placeholder="Senha" onChange={handleChange("password")} onBlur={handleBlur("password")} value={values.password}
                             error={errors.password && touched.password ? errors.password : undefined} password />
                         <TouchableOpacity style={{ marginTop: 12 }} onPress={() => handleSubmit()} >
-                            <Button title="Login" onPress={() => {
-                                navigation.reset({
-                                    index: 0,
-                                    routes: [{ name: 'Home' }],
-                                })
-                            }} />
+                            <Button title="Login"
+                                colorBorder={Colors.primaryColor}
+                                colorButton={Colors.primaryColor}
+                                colorText={Colors.whiteColor}
+                                onPress={() => {
+                                    navigation.reset({
+                                        index: 0,
+                                        routes: [{ name: 'Home' }],
+                                    })
+                                }}
+                            />
                         </TouchableOpacity>
                         <View style={{ alignItems: 'center', marginBottom: 42 }}>
                             <Button title="Não tem conta? Cadastre-se" link
+                                colorButton={Colors.primaryColor}
+                                colorBorder={Colors.whiteColor}
                                 onPress={() => navigation.navigate('Register')}
                             />
                             <Button title="Esqueci minha senha" link
+                                colorButton={Colors.primaryColor}
+                                colorBorder={''}
                                 onPress={() => navigation.navigate('ForgotPassword')}
-                                style={{ marginTop: -8}}
+                                style={{ marginTop: -8 }}
                             />
                         </View>
                     </View>
