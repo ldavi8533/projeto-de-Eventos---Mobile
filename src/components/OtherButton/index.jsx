@@ -4,7 +4,7 @@ import colors from '../../style/colors';
 export default function OtherButton(Props){
     return(
         <View>
-            <TouchableOpacity style={[styles.button, {backgroundColor: Props.color}]}>
+            <TouchableOpacity onPress={Props.onPress} style={[styles.button, {backgroundColor: Props.color}]}>
             <Text style={{color: colors.whiteColor}}>
               {Props.title}
             </Text>
