@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image, Text, Button, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Image, Text, View } from 'react-native';
 import { Heading } from '../../components/ProfileLabel';
 import profileImg from '../../assets/profile-test.png';
 import OtherButton from '../../components/OtherButton';
@@ -61,15 +61,15 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     profileImg: {
-        width: 130,
-        height: 130,
+        width: '30%',
+        height: '15%',
         borderRadius: 130 / 2,
-        marginTop: 120,
+        marginTop: 130,
         marginLeft: 50
     },
     profileBackground: {
-        width: 500,
-        height: 400,
+        width: '500%',
+        height: '40%',
         backgroundColor: '#377481',
         position: "absolute",
         bottom: 630
