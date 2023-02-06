@@ -6,6 +6,7 @@ import OtherButton from '../../components/OtherButton';
 import colors from '../../style/colors';
 
 const Profile = ({navigation}) => {
+
     return (
         <SafeAreaView style={styles.container}>
 
