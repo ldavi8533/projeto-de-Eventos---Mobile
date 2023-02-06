@@ -14,7 +14,7 @@ const initialValues = {
 };
 
 const ForgotPasswordSchema = Yup.object().shape({
-    email: Yup.string().email("Email invalido").required("Obrigatório"),
+    email: Yup.string().email("Email inválido!").required("Obrigatório!"),
 });
 
 const ForgotPassword = ({ navigation }) => {
@@ -36,7 +36,12 @@ const ForgotPassword = ({ navigation }) => {
                         <Input placeholder="Email" onChange={handleChange("email")} onBlur={handleBlur("email")} value={values.email}
                             error={errors.email && touched.email ? errors.email : undefined} />
                         <TouchableOpacity style={{ marginTop: 12 }} onPress={() => handleSubmit()} >
-                            <Button title="Enviar" onPress={() => navigation.navigate('EmailSubmit')} />
+                            <Button title="Enviar"
+                                colorBorder={Colors.primaryColor}
+                                colorButton={Colors.primaryColor}
+                                colorText={Colors.whiteColor}
+                                onPress={() => navigation.navigate('EmailSubmit')}
+                            />
                         </TouchableOpacity>
                     </View>
                 )}

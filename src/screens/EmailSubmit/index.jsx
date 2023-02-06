@@ -18,7 +18,12 @@ const EmailSubmit = ({ navigation }) => {
                     Enviamos as instruções para recuperação de senha para o seu e-mail.
                 </Text>
                 <TouchableOpacity style={{ marginTop: 12 }} onPress={() => handleSubmit()} >
-                    <Button title="Login" onPress={() => navigation.navigate('Login')} />
+                    <Button title="Login"
+                        colorBorder={Colors.primaryColor}
+                        colorButton={Colors.primaryColor}
+                        colorText={Colors.whiteColor}
+                        onPress={() => navigation.navigate('Login')}
+                    />
                 </TouchableOpacity>
             </View>
         </Container>

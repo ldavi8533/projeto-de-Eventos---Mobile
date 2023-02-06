@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList} from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 import Search from '../../components/search';
 import Card from '../../components/Card';
@@ -27,13 +27,16 @@ const Events = [
     }
 ];
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <View style={styles.container}>
             <Search />
-            {/* <Card /> */}
-
-            <FlatList data={Events} renderItem={({item}) => {return <Card info={item}/>}} keyExtractor={(Events) => Events.id.toString()} />
+            <FlatList data={Events}
+                renderItem={({ item }) => {
+                    return <Card info={item} navigation={navigation}/>
+                }}
+                keyExtractor={(Events) => Events.id.toString()}
+            />
         </View>
     );
 };
@@ -41,7 +44,7 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems:'center'
+        alignItems: 'center'
     }
 })
 
