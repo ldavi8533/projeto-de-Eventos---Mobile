@@ -10,7 +10,7 @@ async function forgot_password(req, res) {
         const user = await User.findOne({ email }); 
 
         if(!user) 
-            return res.status(400).send({ error: 'Usuário não encontrado em nossa base de dados'});
+            return res.status(400).json({ error: 'Usuário não encontrado em nossa base de dados'});
 
         const token = crypto.randomBytes(20).toString('hex');
         
@@ -42,13 +42,13 @@ async function forgot_password(req, res) {
         }
         remetente.sendMail(emailEnviado, (err) => {
            if (err)
-            return res.status(400).send({ error: 'Não foi possivel enviar o e-mail de recuperação de senha'});
+            return res.status(400).json({ error: 'Não foi possivel enviar o e-mail de recuperação de senha'});
 
-            return res.status(200).send({ status: 'E-mail enviado com sucesso'});
+            return res.status(200).json({ status: 'E-mail enviado com sucesso'});
         });
     } catch (err) {
         console.log(err);
-        res.status(400).send({ error: 'Falha no sistema de recuperação de senha, tente novamente mais tarde'});
+        res.status(400).json({ error: 'Falha no sistema de recuperação de senha, tente novamente mais tarde'});
     }
 };
 
