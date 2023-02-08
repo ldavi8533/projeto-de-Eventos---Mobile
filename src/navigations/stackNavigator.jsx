@@ -99,7 +99,7 @@ export const StackNavigatorProfile = () => {
                 name='EditProfile'
                 component={EditProfile}
                 options={{
-                    headerShown: true,
+                    headerShown: false,
                 }}
             />
         </Stack.Navigator>
