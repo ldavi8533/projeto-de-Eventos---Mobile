@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 
-export function Heading(Props) {
+export function EditProfileLabel(Props) {
 
     const [text, onChange] = React.useState('');
 
