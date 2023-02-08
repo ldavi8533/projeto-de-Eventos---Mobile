@@ -3,12 +3,12 @@ import {View, StyleSheet, TextInput, SafeAreaView, Dimensions} from "react-nativ
 import { Ionicons } from '@expo/vector-icons';
 import Colors from "../../style/colors";
 
-const Payments = ({inco,Pname}) => {
+const Payments = ({icon,Pname}) => {
     const [text, setText] = useState ('');
     return (
     <SafeAreaView style={styles.container}>
         <View style={styles.cabecalho}>
-            <Ionicons name={inco} size={30} 
+            <Ionicons name={icon} size={30} 
                 color={Colors.primaryLight}
             />
             <TextInput style={styles.input} 
