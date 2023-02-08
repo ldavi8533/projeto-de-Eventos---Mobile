@@ -1,47 +1,43 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image, Text, View } from 'react-native';
-import { Heading } from '../../components/EditProfileLabel';
-import profileImg from '../../assets/profile-test.png';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { EditProfileLabel } from '../../components/EditProfileLabel';
 import OtherButton from '../../components/OtherButton';
 import colors from '../../style/colors';
+import { ProfileImage } from '../../components/ProfileImage';
+import Payments from '../../components/Payments';
 
 
 const EditProfile = ({navigation}) => {
     return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.profileBackground}></View>
+        <ScrollView style={styles.container}>
 
-        <Image
-            source={profileImg}
-            style={styles.profileImg}
-        />
-        <Text style={styles.name}>Reyson Ferreira</Text>
+            <ProfileImage />
 
         <View style={styles.texts}>
 
-            <Heading
+            <EditProfileLabel
                 style={styles.label}
                 labelTitle='Nome'
-                labelSubtitle='Reyson Renan Lustosa'
             />
+            <Payments Pname={'Reyson Renan Lustosa'}/>
 
-            <Heading
+            <EditProfileLabel
                 style={styles.label}
                 labelTitle='Apelido'
-                labelSubtitle='Reyson Ferreira'
             />
+            <Payments Pname={'Reyson Ferreira'}/>
 
-            <Heading
+            <EditProfileLabel
                 style={styles.label}
                 labelTitle='Email'
-                labelSubtitle='reysonrenan@gmail.com'
             />
+            <Payments Pname={'reysonrenan@gmail.com'}/>
 
-            <Heading
+            <EditProfileLabel
                 style={styles.label}
                 labelTitle='Telefone'
-                labelSubtitle='(83) 9xxxx-xxxx'
             />
+            <Payments Pname={'(83) 9xxxx-xxxx'}/>
 
         </View >
 
@@ -51,7 +47,7 @@ const EditProfile = ({navigation}) => {
             />
         </View>
             
-        </SafeAreaView>
+        </ScrollView>
     );
 }
 
@@ -59,33 +55,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    profileImg: {
-        width: '30%',
-        height: '15%',
-        borderRadius: 130 / 2,
-        marginTop: 130,
-        marginLeft: 50
-    },
-    profileBackground: {
-        width: '500%',
-        height: '40%',
-        backgroundColor: '#377481',
-        position: "absolute",
-        bottom: 630
-    },
-    name: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: 10,
-        marginLeft: 40
-    },
     texts: {
-        margin: 30,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        textAlign: 'center',
-        marginTop: 70,
-        marginBottom: 60
+        marginTop: 50 ,
+        marginBottom: 20
     },
     button: {
         alignItems: 'center',

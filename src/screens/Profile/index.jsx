@@ -1,44 +1,38 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image, Text, View } from 'react-native';
-import { Heading } from '../../components/ProfileLabel';
-import profileImg from '../../assets/profile-test.png';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { ProfileLabel } from '../../components/ProfileLabel';
+import { ProfileImage } from '../../components/ProfileImage';
 import OtherButton from '../../components/OtherButton';
 import colors from '../../style/colors';
 
 const Profile = ({navigation}) => {
 
     return (
-        <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.container}>
 
-            <View style={styles.profileBackground}></View>
-
-            <Image
-                source={profileImg}
-                style={styles.profileImg}
-            />
-            <Text style={styles.name}>Reyson Ferreira</Text>
+            <ProfileImage/>
 
             <View style={styles.texts}>
 
-                <Heading
+                <ProfileLabel
                     style={styles.label}
                     labelTitle='Nome'
                     labelSubtitle='Reyson Renan Lustosa'
                 />
 
-                <Heading
+                <ProfileLabel
                     style={styles.label}
                     labelTitle='Apelido'
                     labelSubtitle='Reyson Ferreira'
                 />
 
-                <Heading
+                <ProfileLabel
                     style={styles.label}
                     labelTitle='Email'
                     labelSubtitle='reysonrenan@gmail.com'
                 />
 
-                <Heading
+                <ProfileLabel
                     style={styles.label}
                     labelTitle='Telefone'
                     labelSubtitle='(83) 9xxxx-xxxx'
@@ -53,33 +47,13 @@ const Profile = ({navigation}) => {
                     onPress={() => navigation.navigate('Login')}
                 />
             </View>
-        </SafeAreaView>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    profileImg: {
-        width: '30%',
-        height: '15%',
-        borderRadius: 130 / 2,
-        marginTop: 130,
-        marginLeft: 50
-    },
-    profileBackground: {
-        width: '500%',
-        height: '40%',
-        backgroundColor: '#377481',
-        position: "absolute",
-        bottom: 630
-    },
-    name: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: 10,
-        marginLeft: 40
     },
     texts: {
         margin: 30,
