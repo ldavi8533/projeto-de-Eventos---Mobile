@@ -29,7 +29,7 @@ const deviceWidth = Math.round(Dimensions.get("window").width);
 const styles = StyleSheet.create({
     container: {
         width: deviceWidth,
-        height: 120,
+        height: 80,
         justifyContent: 'center',
         alignItems: 'center',
     
