@@ -1,18 +1,19 @@
 import React, {useState} from "react";
-import {View, StyleSheet, TextInput, SafeAreaView, Dimensions} from "react-native";
+import {View, StyleSheet, TextInput, SafeAreaView, Dimensions, TouchableWithoutFeedback, Keyboard} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import Colors from "../../style/colors";
 
 const Search = () => {
     const [text, setText] = useState ('');
     return (
-    <SafeAreaView style={styles.container}>
-        <View style={styles.cabecalho}>
-        <Ionicons name="search" size={30} color='white'/>
-        <TextInput style={styles.input} placeholder="Pesquisar" autoCapitalize="none" autoCorrect={false} value={text} onChangeText={(value) => setText(value)}/>
-        <Ionicons name="close" size={30} color='white'/>
-    </View>
-    </SafeAreaView>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.cabecalho}>
+                 <Ionicons name="search" size={30} color='white'/>
+                 <TextInput style={styles.input} placeholder="Pesquisar" placeholderTextColor={Colors.whiteColor} autoCapitalize="none" autoCorrect={false} value={text} onChangeText={(value) => setText(value)}/>
+            </View>
+        </SafeAreaView>
+    </TouchableWithoutFeedback>
     );
 };
  
@@ -29,11 +30,9 @@ const styles = StyleSheet.create({
 
     cabecalho:{
         flexDirection: 'row',
-        alignItems: 'center',
         backgroundColor: Colors.primaryLight,
         height: 50,
         borderRadius: 5,
-        margin: 0,
         padding: 10,
     },
     
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
         flex: 0.80,
         backgroundColor: Colors.primaryLight,
         fontSize: 20,
+        marginLeft: 10,
     },
 });
 
