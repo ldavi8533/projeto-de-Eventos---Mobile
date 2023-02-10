@@ -32,12 +32,14 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom:5,
 
-        shadowColor: '#000',
+        shadowColor: "#000000",
         shadowOffset: {
-            height: 5,
+            width: 0,
+            height: 3,
         },
-        shadowOpacity: 0.1,
-        shadowRadius: 2,
+        shadowOpacity:  0.17,
+        shadowRadius: 3.05,
+        elevation: 4
     },
 
     imageStyle: {
