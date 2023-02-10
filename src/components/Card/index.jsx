@@ -29,15 +29,15 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: 240,
         borderRadius: 10,
-        marginTop: 10,
+        marginTop: 5,
+        marginBottom:5,
 
         shadowColor: '#000',
         shadowOffset: {
             height: 5,
         },
-        shadowOpacity: 0.55,
-        shadowRadius: 5,
-        elevation: 9,
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
     },
 
     imageStyle: {
