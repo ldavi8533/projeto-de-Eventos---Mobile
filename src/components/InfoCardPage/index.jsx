@@ -6,8 +6,8 @@ import Unorderedlist from 'react-native-unordered-list';
 
 import colors from '../../style/colors';
 
-const InfoCardPage = () => {
-
+const InfoCardPage = ({info}) => {
+    const {name, event, eventDescription, schedule, scheduleDescription, organizers, organizers1, organizers2, organizers3, organizers4, image, price} = info;
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -15,9 +15,9 @@ const InfoCardPage = () => {
 
             <ScrollView>
             
-            <Text  style={styles.textTitle}>Night club</Text>
-            <Image style={styles.img} source={require('../../assets/image03.png')}/>
-            <Text  style={styles.textTitle}>Presencial</Text>
+            <Text  style={styles.textTitle}>{name}</Text>
+            <Image style={styles.img} source={image}/>
+            <Text  style={styles.textTitle}>{event}</Text>
 
             <View >
 
@@ -49,27 +49,27 @@ const InfoCardPage = () => {
 
             </View>
             
-            <Text style={styles.texDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
-            <Text style={styles.textTitle}>Programação</Text>
-            <Text style={styles.texDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
-            <Text style={styles.textTitle}>Organizadores</Text>
+            <Text style={styles.texDescription}>{eventDescription}</Text>
+            <Text style={styles.textTitle}>{schedule}</Text>
+            <Text style={styles.texDescription}>{scheduleDescription}</Text>
+            <Text style={styles.textTitle}>{organizers}</Text>
 
             <View style={styles.listStyle}>
                 <Unorderedlist>
-                    <Text>Maria Silva</Text>
+                    <Text>{organizers1}</Text>
                 </Unorderedlist>
                 <Unorderedlist>
-                    <Text>João Silva</Text>
+                    <Text>{organizers2}</Text>
                 </Unorderedlist>
                 <Unorderedlist>
-                    <Text>Jose Silva</Text>
+                    <Text>{organizers3}</Text>
                 </Unorderedlist>
                 <Unorderedlist>
-                    <Text>Ana Silva</Text>
+                    <Text>{organizers4}</Text>
                 </Unorderedlist>
             </View>
             
-            <Text style={styles.priceStyle}>R$ 120,00</Text>
+            <Text style={styles.priceStyle}>{price}</Text>
             </ScrollView>
         </View>
 
