@@ -9,7 +9,7 @@ import InfoCardPage from '../../components/InfoCardPage'
 const CardPage = ({ navigation }) => {
 
     return (
-        <View backgroundColor='white'>
+        <View >
             
 
             <ScrollView maximumZoomScale={true}>
