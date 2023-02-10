@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native"
 import { Ionicons } from '@expo/vector-icons';
 
 
 const IconFavorite = () =>{
+
+    const [color, setColor] = useState(true)
+
     return(
-        <TouchableOpacity style={styles.iconFavorite}>
+        <View>
+            {color?
+
+             <TouchableOpacity style={styles.iconFavorite} onPress={() => setColor(!color)}>
             <Ionicons name='heart-outline' size={30}/>
-        </TouchableOpacity>
+            </TouchableOpacity>
+        :
+            <TouchableOpacity style={styles.iconFavorite} onPress={() => setColor(!color)}>
+                <Ionicons name='heart' color='black' size={30}/>
+            </TouchableOpacity>
+
+            }
+        </View>
+        
     );
 };
 
