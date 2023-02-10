@@ -1,6 +1,6 @@
 const User = require("../../models/User")
 
-//  COMPRAR EVENTO
+
   async function addFavorite(req, res){
     User.findOne({email: req.body.email}).then((user)=>{
         user.favoriteList.push(req.body.eventName);
@@ -13,7 +13,6 @@ const User = require("../../models/User")
     })
   }
 
-// BUSCAR HISTORICO DE COMPRAS
 
   async function getFavoriteList(req, res){
     User.findOne({email: req.body.email}).lean().then((user)=>{
