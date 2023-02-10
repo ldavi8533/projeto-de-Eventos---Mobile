@@ -11,7 +11,7 @@ const InfoCardPage = () => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
-        <View backgroundColor='white'>
+        <View>
 
             <ScrollView>
             
