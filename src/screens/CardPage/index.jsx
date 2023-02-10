@@ -1,94 +1,88 @@
-import { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { View, Text, Modal, Pressable, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { View, ScrollView, FlatList} from 'react-native';
 
 import Button from '../../components/Button';
 
 import Colors from '../../style/colors';
 
+import InfoCardPage from '../../components/InfoCardPage'
+import { StackNavigatorFavorites } from '../../navigations/stackNavigator';
+
+const InfoCard = [
+    {
+        name: 'Night club',
+        event:'Presencial',
+        eventDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        schedule: 'Programação',
+        scheduleDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        organizers: 'Organizadores',
+        organizers1: 'Maria Silva',
+        organizers2: 'João Silva',
+        organizers3: 'Jose Silva',
+        organizers4: 'Ana Silva',
+        price:'R$ 125,00',
+        image: require('../../assets/image03.png'),
+        id: 1,
+    },
+    {
+        name: 'Music Festival',
+        event:'Presencial',
+        eventDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        schedule: 'Programação',
+        scheduleDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        organizers: 'Organizadores',
+        organizers1: 'Maria Silva',
+        organizers2: 'João Silva',
+        organizers3: 'Jose Silva',
+        organizers4: 'Ana Silva',
+        price:'R$ 50,00',
+        image: require('../../assets/image02.png'),
+        id: 2,
+    },
+    {
+        name: 'Stop Gender Violence',
+        event:'Presencial',
+        eventDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        schedule: 'Programação',
+        scheduleDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        organizers: 'Organizadores',
+        organizers1: 'Maria Silva',
+        organizers2: 'João Silva',
+        organizers3: 'Jose Silva',
+        organizers4: 'Ana Silva',
+        price:'R$ 100,00',
+        image: require('../../assets/image01.png'),
+        id: 3,
+    }
+];
+
 const CardPage = ({ navigation }) => {
-    const [modalVisible, setModalVisible] = useState(false);
+
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View >
+        
+            <ScrollView maximumZoomScale={true}>
 
-            <Text>CardPage</Text>
+                {/* <InfoCardPage /> */}
 
-            <View >
-                <Pressable onPress={() => setModalVisible(true)}>
-                    <Ionicons name='location' size={30} />
-                    <Text>Visualizar local</Text>
-                </Pressable>
+                <FlatList data={InfoCard}
+                    renderItem={({ item }) => {
+                        return <InfoCardPage info={item} navigation={navigation}/>
+                    }}
+                    keyExtractor={(InfoCard) => InfoCard.id.toString()}
+                />
 
-                <Modal
-                    transparent={true}
-                    visible={modalVisible}
-                >
-                    <View style={[styles.centeredView, { backgroundColor: 'rgba(255,255,255,0.75)' }]} >
-                        <View style={styles.modalView}>
-                            <Pressable
-                                style={[styles.button, styles.buttonClose]}
-                                onPress={() => setModalVisible(!modalVisible)}>
-                                <Ionicons name='close' />
-                            </Pressable>
-
-                            <MapView
-                                style={[styles.map, { width: 300, height: 450 }]}
-                            />
-
-                            <Text style={styles.modalText}>Local</Text>
-                        </View>
-                    </View>
-                </Modal>
-
-            </View>
-
-            <Button title='Comprar ingresso'
-                colorBorder={Colors.primaryColor}
-                colorButton={Colors.primaryColor}
-                colorText={Colors.whiteColor}
-                onPress={() => navigation.navigate('TicketPage')}
-            />
-
+                <View style={{ paddingLeft:30, paddingRight:30, paddingBottom:10 }}>
+                    <Button title='Comprar ingresso'
+                    colorBorder={Colors.primaryColor}
+                    colorButton={Colors.primaryColor}
+                    colorText={Colors.whiteColor}
+                    onPress={() => navigation.navigate('TicketPage')} 
+                    />
+                </View>
+            
+            </ScrollView>
         </View>
+
     );
 }
 export default CardPage;
-
-const styles = StyleSheet.create({
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalView: {
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 10,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-    },
-    button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2,
-    },
-    buttonClose: {
-        marginBottom: 10,
-        backgroundColor: '#2196F3',
-    },
-    modalText: {
-        padding: 10,
-        textAlign: 'justify',
-    },
-    map: {
-        padding: 10,
-    },
-});
