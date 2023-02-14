@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { ProfileLabel } from '../../components/ProfileLabel';
 import { ProfileImage } from '../../components/ProfileImage';
 import OtherButton from '../../components/OtherButton';
@@ -10,7 +10,14 @@ const Profile = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
 
-            <ProfileImage/>
+            <View style={styles.containerImageProfile}>
+                <ProfileImage />
+                <View style={styles.editProfileButton}></View>
+            </View>
+
+            <View style={styles.nameContainer}>
+                <Text style={styles.name}>Reyson Ferreira</Text>
+            </View>
 
             <View style={styles.texts}>
 
@@ -65,6 +72,19 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
+    },
+    nameContainer: {
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        marginTop: 20
+    },
+    name: {
+        fontSize: 25,
+        fontWeight: 'bold'
+    },
+    containerImageProfile:{
+        width: 130,
+        alignSelf: 'center'
     }
 })
 export default Profile;
