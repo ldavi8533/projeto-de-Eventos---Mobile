@@ -18,6 +18,7 @@ const Payments = ({icon,Pname}) => {
                 autoCorrect={false} 
                 value={text} 
                 onChangeText={(value) => setText(value)}
+
             />
         </View>
     </SafeAreaView>
@@ -32,9 +33,7 @@ const styles = StyleSheet.create({
         height: 120,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: -25
-    
-
+        marginBottom: -25,
     },
     cabecalho:{
         flexDirection: 'row',
