@@ -1,17 +1,27 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
 import { EditProfileLabel } from '../../components/EditProfileLabel';
 import OtherButton from '../../components/OtherButton';
 import colors from '../../style/colors';
 import { ProfileImage } from '../../components/ProfileImage';
 import Payments from '../../components/Payments';
+import { EditProfileButton } from '../../components/EditProfileButton';
 
 
 const EditProfile = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
+            
+            <View style={styles.containerImageProfile}>
+                <ProfileImage />
+                <View style={styles.editProfileButton}><EditProfileButton /></View>
+                
+            </View>
 
-            <ProfileImage />
+            <View style={styles.nameContainer}>
+                <Text style={styles.name}>Reyson Ferreira</Text>
+            </View>
+
 
         <View style={styles.texts}>
 
@@ -61,6 +71,23 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
+    },
+    nameContainer: {
+        alignItems: 'center',
+        justifyContent: 'flex-end'
+    },
+    name: {
+        fontSize: 25,
+        fontWeight: 'bold'
+    },
+    containerImageProfile:{
+        width: 130,
+        alignSelf: 'center'
+    },
+    editProfileButton: {
+        alignItems: 'flex-end',
+        marginTop: -20,
+        marginBottom: 20
     }
 })
 export default EditProfile;
