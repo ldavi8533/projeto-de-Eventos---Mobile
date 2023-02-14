@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import Colors from '../../style/colors';
 
 import InfoCardPage from '../../components/InfoCardPage'
-import { StackNavigatorFavorites } from '../../navigations/stackNavigator';
+
 
 const InfoCard = [
     {
@@ -23,7 +23,7 @@ const InfoCard = [
         image: require('../../assets/image03.png'),
         id: 1,
     },
-    {
+    /* {
         name: 'Music Festival',
         event:'Presencial',
         eventDescription:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -52,7 +52,7 @@ const InfoCard = [
         price:'R$ 100,00',
         image: require('../../assets/image01.png'),
         id: 3,
-    }
+    } */
 ];
 
 const CardPage = ({ navigation }) => {
