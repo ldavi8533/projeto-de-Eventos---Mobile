@@ -9,8 +9,6 @@ export function ProfileImage() {
             source={profileImg}
             style={styles.profileImg}
         />
-        
-        <Text style={styles.name}>Reyson Ferreira</Text>
     </View>
 
   );
@@ -27,10 +25,5 @@ const styles = StyleSheet.create({
         width: 130,
         height: 130,
         borderRadius: 130 / 2,
-    },
-    name: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: 10,
     }
 })
